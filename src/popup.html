@@ -7,26 +7,56 @@
     <title>GoTo Youtube</title>
     <style>
         body {
-            margin: 10px;
+            margin: 0;
             white-space: nowrap;
         }
         #container {
-            align-items: center;
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
         }
-        .start {
-            border: 1px solid #888;
-            border-radius: 15px;
-            padding: 5px 15px;
-            cursor: pointer;
+        #line {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        #jump-to-input {
+            width: 100px;
+            height: 20px;
+            line-height: 20px;
+            font-size: 16px;
+            outline: none;
+            text-align: center;
+        }
+        #goto-btn {
+            width: 100%;
+            margin-top: 1px;
+            border: none;
+            background-color: lightseagreen;
+            color: white;
+            height: 25px;
+            outline: none;
+        }
+        #goto-btn:active {
+            background-color: mediumseagreen;
+        }
+        #error {
+            color: red;
+            text-align: center;
+            font-weight: 800;
+            font-size: 12px;
+            padding: 1px;
         }
     </style>
 </head>
 <body>
     <div id="container">
-        <input type="time" id="time" placeholder="time in seconds e.g 120">
-        <button id="update">Go to time</button>
+        <div id="line">
+            <input type="text" id="jump-to-input" minlength="4" maxlength="4j" pattern="[0-9]{4}">
+            <span>Sec</span>
+        </div>
+        <button id="goto-btn">Jump to time</button>
+        <div id="error"></div>
     </div>
 
     <script src="js/popup.js"></script>
